@@ -1,10 +1,11 @@
 # Remote Thermometer
-## Receive temperature readings remotely
-## via the Web using a Raspberry Pi
-## an Arduino, and a DS18B20 digital thermometer
+<h3>Receive temperature readings remotely<br>
+via the Web using a Raspberry Pi<br>
+an Arduino, and a DS18B20 digital thermometer</h3>
+
 Presenting the equipment and code used for a working digital thermometer that displays temperature readings on a personally-controlled web site.
 
-####Equipment
+#### Equipment
 1. DS18B20
 1. Arduino Uno
 1. Raspberry Pi (RPi)
@@ -16,7 +17,7 @@ Presenting the equipment and code used for a working digital thermometer that di
 1. Optional monitor, keyboard and mouse to use the RPi for code development
 1. Optional ethernet cable, if you prefer or require a wired network connection
 
-####Assembly
+#### Assembly
 * Connect the DS18B20 to the Arduino
   * Identify which pin is which on the device.
      * Hold it with the pins dangling down, and the flat face of the package facing you.
@@ -29,7 +30,7 @@ Presenting the equipment and code used for a working digital thermometer that di
   
 * Hook up all the other cables where they obviously go.
 
-####Code
+#### Code
 Four, distinct coding solutions cooperate to make this project work. The respective code files in this repository are listed below.
 1. Arduino
   * This code is written for the Arduino IDE.
