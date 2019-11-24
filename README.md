@@ -19,11 +19,11 @@ Presenting the equipment and code used for a working digital thermometer that di
 
 #### Assembly
 * Connect the DS18B20 to the Arduino
-  * Identify which pin is which on the device.
-     * Hold it with the pins dangling down, and the flat face of the package facing you.
-     1. The pin on the left is Pin 1, 'GND', the ground pin.
-     2. The pin in the middle is Pin 2, 'DQ', the data pin.
-     3. The pin on the right is Pin 3, 'VDD', the power-in pin.
+  * First, identify the function of each pin on the device. See the device spec sheet, [here](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf).
+  * Hold it with the pins dangling down, and the flat face of the package facing you.
+    1. The pin on the left is Pin 1, 'GND', the ground pin.
+    2. The pin in the middle is Pin 2, 'DQ', the data pin.
+    3. The pin on the right is Pin 3, 'VDD', the power-in pin.
   * Connect Pin 1 to a GND pin on the Arduino.
   * Connect Pin 2 to a data pin on the Arduino.
   * Connect Pin 3 to the 5V power-out pin on the Arduino.
@@ -34,9 +34,9 @@ Presenting the equipment and code used for a working digital thermometer that di
 Four, distinct coding solutions cooperate to make this project work. The respective code files in this repository are listed below.
 1. Arduino
   * This code is written for the Arduino IDE.
-  * YOu will need the OneWire and DallasTemperature libraries. Download them from Github.
-    * Paul Stoffregen's OneWire library
-    * Miles Burton's Arduino-Temperature-Control-Library
+  * YOu may need to import the OneWire and DallasTemperature libraries into your Arduino IDE for this project. Download them from Github.
+    * [Paul Stoffregen's OneWire library](https://github.com/PaulStoffregen/OneWire)
+    * [Miles Burton's Arduino-Temperature-Control-Library](https://github.com/milesburton/Arduino-Temperature-Control-Library)
   * The code sends a temperature out as text via the Arduino's serial port at ten-second intervals
   
 2. Python3 script
