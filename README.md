@@ -34,7 +34,7 @@ Presenting the equipment and code used for a working digital thermometer that di
 Four, distinct coding solutions cooperate to make this project work. The respective code files in this repository are listed below.
 1. Arduino
   * This code is written for the Arduino IDE.
-  * YOu may need to import the OneWire and DallasTemperature libraries into your Arduino IDE for this project. Download them from Github.
+  * You may need to import the OneWire and DallasTemperature libraries into your Arduino IDE for this project. Download them from Github.
     * [Paul Stoffregen's OneWire library](https://github.com/PaulStoffregen/OneWire)
     * [Miles Burton's Arduino-Temperature-Control-Library](https://github.com/milesburton/Arduino-Temperature-Control-Library)
   * The code sends a temperature out as text via the Arduino's serial port at ten-second intervals
