@@ -39,7 +39,7 @@ Four, distinct coding solutions cooperate to make this project work. The respect
     * [Miles Burton's Arduino-Temperature-Control-Library](https://github.com/milesburton/Arduino-Temperature-Control-Library)
   * The code sends a temperature out as text via the Arduino's serial port at ten-second intervals
   
-2. Python3 script
+2. Python3 script: *thermoduino.py*
   * This code runs on the Raspberry Pi.
   * It is the master control program for this project.
   * The code actions include:
