@@ -55,8 +55,8 @@ Four, distinct coding solutions cooperate to make this project work. The respect
   * The Python script calls this shell script when it wants to upload the html file.
   * Modify the command to use the ftp credentials and ip address for your personal web server.
   
-4. Shell script #2
-  * This code is designed to run whenever the RPi boots up.
+4. Shell script #2 *Not available yet. Still working on it.*
+  * This code is intended to run whenever the RPi boots up.
   * Its role is to re-start the remote thermometer in the event the RPi restarts for any reason.
   * The command runs the Python script as the user having owner-level permissions on the script file.
   
