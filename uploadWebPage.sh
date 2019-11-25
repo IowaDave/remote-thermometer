@@ -1,1 +1,2 @@
-ncftpput -u tempreporter -p 'EvGv!Gk9zL3U51' -S .tmp -t 150 -z 50.62.120.1 / /home/pi/Documents/Temperduino/index.html
+# edit this for your user name(s), ftp password and file path
+ncftpput -u ftp_user -p ftp_password -S .tmp -t 150 -z ip.add.re.ss / /home/username/Documents/thermoduino/index.html
