@@ -48,7 +48,7 @@ Four, distinct coding solutions cooperate to make this project work. The respect
     * produce an html file from the workfile data at selected times daily,
     * upload the html file via ftp to a web server.
     
-3. Shell script #1
+3. Shell script #1: *uploadWebPage.sh*
   * This code runs on the RPi.
   * It uses one of the ncftp utilities to automate the web server upload.
   * You might need to install ncftp.  For example: sudo apt-get install ncftp
