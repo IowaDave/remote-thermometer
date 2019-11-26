@@ -2,6 +2,9 @@
 #
 # Read one temperature from Arduino
 #
+# Notice the use of a full file path name.
+# This seems to help the program play nice with cron.
+#
 import serial
 import time
 # connection object
