@@ -10,12 +10,11 @@ Presenting the equipment and code used for a working digital thermometer that di
 1. Arduino Uno
 1. Raspberry Pi (RPi)
 1. Power supply suitable for the RPi
-1. Powered USB hub, with power supply
-1. USB cable connecting RPi to USB hub
-1. USB cable connecting Arduino to USB hub
+1. USB cable connecting RPi to Arduino
 1. Three jumper wires connecting DS18B20 to Arduino
-1. Optional monitor, keyboard and mouse to use the RPi for code development
+1. Optional battery-enabled backup power supply, highly recommended
 1. Optional ethernet cable, if you prefer or require a wired network connection
+1. Optional monitor, keyboard, mouse and powered USB hub to use the RPi for code development
 
 #### Assembly
 * Connect the DS18B20 to the Arduino
@@ -31,7 +30,16 @@ Presenting the equipment and code used for a working digital thermometer that di
 * Hook up all the other cables where they obviously go.
 
 #### Code
-Four, distinct coding solutions cooperate to make this project work. The respective code files in this repository are listed below.
+One code solution runs on the Arduino. The remaining three runs on the RPi. In the spirit of Unix, the RPi code segments:
+* are short, 
+* perform only one task each, and
+* cooperate with the Linux cron scheduler to make this project work. 
+
+The cron scheduler probably has counterparts in other operating systems. I am just a dumb country boy who does not know everything, so you would have to find that out from someone else.  <grin>
+ 
+Cron makes this project robust for system restarts due to power failure. Cron automatically starts on boot, and it activates programs based on actual times obtained from the RPi's real time clock. If the power goes out, nothing's lost. The system will resume its task when the power comes back on. This precaution is in addition to using a battery-enabled backup power supply.
+
+The respective code files in this repository are listed below.
 1. Arduino: *thermoduino.ino*
   * This code is written for the Arduino IDE.
   * You may need to import the OneWire and DallasTemperature libraries into your Arduino IDE for this project. Download them from Github.
@@ -39,24 +47,22 @@ Four, distinct coding solutions cooperate to make this project work. The respect
     * [Miles Burton's Arduino-Temperature-Control-Library](https://github.com/milesburton/Arduino-Temperature-Control-Library)
   * The code sends a temperature out as text via the Arduino's serial port at ten-second intervals
   
-2. Python3 script: *thermoduino.py*
+2. Python3 script: *readTemperature.py*
   * This code runs on the Raspberry Pi.
-  * It is the master control program for this project.
-  * The code actions include:
-    * receive temperature strings via the RPi's serial port,
-    * append temperatures with a timestamp into a workfile at hourly intervals,
-    * produce an html file from the workfile data at selected times daily,
-    * upload the html file via ftp to a web server.
+  * Its job is to fetch a temperature from the Arduino and append it to a data accumulation file.
+  * It closes the file and exits immediately after each temperature reading.
+  * Cron runs it once at the beginning of each hour.
     
-3. Shell script #1: *uploadWebPage.sh*
-  * This code runs on the RPi.
-  * It uses one of the ncftp utilities to automate the web server upload.
+3. Python3 script: *createTempsHomePage.py*
+  * Cron runs it on the RPi once, at 5 minutes past the hour, at four-hour intervals
+  * Reads the entire data accumulation file into a list (see #2, above)
+  * Reverses the list, placing most recent data first.
+  * Writes the list out as an 'index.html' file, that is, a web page file.
+ 
+4. Shell script #1: *uploadWebPage.sh*
+  * Cron runs this code runs on the RPi about 5 minutes after the index.html file is updated.
+  * The script uses one of the ncftp utilities to automate the web server upload.
   * You might need to install ncftp.  For example: sudo apt-get install ncftp
   * The Python script calls this shell script when it wants to upload the html file.
   * Modify the command to use the ftp credentials and ip address for your personal web server.
-  
-4. Shell script #2 *Not available yet. Still working on it.*
-  * This code is intended to run whenever the RPi boots up.
-  * Its role is to re-start the remote thermometer in the event the RPi restarts for any reason.
-  * The command runs the Python script as the user having owner-level permissions on the script file.
   
