@@ -24,7 +24,7 @@ Presenting the equipment and code used for a working digital thermometer that di
     2. The pin in the middle is Pin 2, 'DQ', the data pin.
     3. The pin on the right is Pin 3, 'VDD', the power-in pin.
   * Connect Pin 1 to a GND pin on the Arduino.
-  * Connect Pin 2 to a data pin on the Arduino.
+  * Connect Pin 2 to a data pin on the Arduino. The code example in this repository expects Pin A0 to be used. It's as good as any other choice.
   * Connect Pin 3 to the 5V power-out pin on the Arduino.
   
 * Hook up all the other cables where they obviously go.
