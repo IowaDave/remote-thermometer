@@ -37,7 +37,7 @@ One code solution runs on the Arduino. The remaining three runs on the RPi. In t
 
 The cron scheduler probably has counterparts in other operating systems. I am just a dumb country boy who does not know everything, so you would have to find that out from someone else.  <grin>
  
-Cron makes this project robust for system restarts due to power failure. Cron automatically starts on boot, and it activates programs based on actual times obtained from the RPi's real time clock. If the power goes out, nothing's lost. The system will resume its task when the power comes back on. This precaution is in addition to using a battery-enabled backup power supply.
+Cron makes this project robust for system restarts following a power failure. Cron automatically starts on boot, and it activates programs based on actual times obtained from the RPi's real time clock. If the power goes out, nothing's lost. The system will resume its task when the power comes back on. This precaution is in addition to using a battery-enabled backup power supply.
 
 The respective code files in this repository are listed below.
 1. Arduino: *thermoduino.ino*
