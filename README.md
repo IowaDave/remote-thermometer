@@ -18,7 +18,7 @@ Presenting the equipment and code used for a working digital thermometer that di
 
 #### Assembly
 * Connect the DS18B20 to the Arduino
-  * First, identify the function of each pin on the device. See the device spec sheet, [here](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf).
+  * First, identify the function of each pin on the DS18B20. See the device spec sheet, [here](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf).
   * Hold it with the pins dangling down, and the flat face of the package facing you.
     1. The pin on the left is Pin 1, 'GND', the ground pin.
     2. The pin in the middle is Pin 2, 'DQ', the data pin.
